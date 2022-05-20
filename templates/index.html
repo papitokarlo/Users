@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{%block head%}
+<title>
+    Persons:
+</title>
+{%endblock%}
+
+{%block body%}
+<div class="center">
+    {% if persons|length < 1 %}
+    <h2>nothong to show, Created some <h2>
+    {%else%}
+    <h1> HERE YOU CAN SEE ALL REGISTRATED USERS</h1>
+    <p> TOTAL REGISTRATIONS {{counter}} </p>
+    {%for i in persons%}
+    <table class="table table-hover table-dark">
+        <tbody>                            
+            <tr>
+                <th scope="row">სახელი/FULLNAME</th>
+                <td>{{i.id}}</td>
+            </tr>
+            <tr>
+                <th scope="row">აიდი/ID</th>
+                <td>{{i.public_id}}</td>
+            </tr>
+            <tr>
+                <th scope="row">სახელი/name</th>
+                <td>{{i.name}}</td>
+            </tr>
+            <tr>
+                <th scope="row">admin : </th>
+                <td>{{i.admin}}</td>
+            </tr>
+            <tr>
+                <th scope="row">საცხოვრებელი ადგილი</th>
+                <td>{{i.live}}</td>
+            </tr>  
+            <tr>
+                <th scope="row">ასაკი/age</th>
+                <td>{{i.age}}</td>
+            </tr>
+            <tr>
+                <th scope="row">paroli</th>
+                <td>{{i.password}}</td>
+            </tr>                
+        </tbody>
+    </table>
+    {%endfor%}
+    {%endif%}
+
+</div>
+{%endblock%}
